@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SureVisa.com - Your Trusted Partner for Visa, Jobs & Tours</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(142, 74, 73, 0.9), rgba(142, 74, 73, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%238E4A49" width="1200" height="600"/><g fill="%23ffffff" opacity="0.1"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="300" r="120"/><circle cx="1000" cy="100" r="60"/><path d="M100 400 Q300 350 500 400 T900 400" stroke="%23ffffff" stroke-width="3" fill="none"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-image {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+        
+        .card-hover:nth-child(1) { animation-delay: 0.1s; }
+        .card-hover:nth-child(2) { animation-delay: 0.2s; }
+        .card-hover:nth-child(3) { animation-delay: 0.3s; }
+        .card-hover:nth-child(4) { animation-delay: 0.4s; }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .testimonial-card {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .partner-logo {
+            height: 60px;
+            width: 120px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .sliding-logos {
+            animation: slide 20s linear infinite;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold" style="color: rgb(142, 74, 73);">
+                        <i class="fas fa-globe-americas mr-2"></i>
+                        SureVisa.com
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 font-medium transition-all duration-300 hover:scale-105" style="hover:color: rgb(142, 74, 73);" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Home</a>
+                    <a href="#services" class="text-gray-700 font-medium transition-all duration-300 hover:scale-105" style="hover:color: rgb(142, 74, 73);" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Our Services</a>
+                    <a href="#testimonials" class="text-gray-700 font-medium transition-all duration-300 hover:scale-105" style="hover:color: rgb(142, 74, 73);" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Testimonial</a>
+                    <a href="#clients" class="text-gray-700 font-medium transition-all duration-300 hover:scale-105" style="hover:color: rgb(142, 74, 73);" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Clients</a>
+                    <a href="https://wa.me/61489989397" class="text-gray-700 font-medium transition-all duration-300 hover:scale-105" style="hover:color: rgb(142, 74, 73);" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Contact Us</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-700" style="hover:color: rgb(142, 74, 73);" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 md:hidden">
+            <div class="p-4">
+                <button id="close-menu" class="float-right text-gray-700" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="clear-both mt-8 space-y-4">
+                    <a href="#home" class="block text-gray-700 font-medium py-2 transition-all duration-300 hover:translate-x-2" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Home</a>
+                    <a href="#services" class="block text-gray-700 font-medium py-2 transition-all duration-300 hover:translate-x-2" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Our Services</a>
+                    <a href="#testimonials" class="block text-gray-700 font-medium py-2 transition-all duration-300 hover:translate-x-2" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Testimonial</a>
+                    <a href="#clients" class="block text-gray-700 font-medium py-2 transition-all duration-300 hover:translate-x-2" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Clients</a>
+                    <a href="https://wa.me/61489989397" class="block text-gray-700 font-medium py-2 transition-all duration-300 hover:translate-x-2" onmouseover="this.style.color='rgb(142, 74, 73)'" onmouseout="this.style.color='#374151'">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="hero-content text-white text-center lg:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Your Trusted Partner for<br>
+                        <span class="text-yellow-300">Visa, Jobs & Tours</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                        Fast, Reliable & Hassle-Free Services
+                    </p>
+                    <button onclick="window.open('https://wa.me/61489989397?text=Hello! I want to apply via SureVisa.com', '_blank')" 
+                            class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg animate-bounce-slow">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Apply Now
+                </button>
+
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="hero-image flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <!-- Main Travel Image -->
+                        <div class="relative w-96 h-96 rounded-2xl overflow-hidden shadow-2xl">
+                            <!-- Travel Scene SVG -->
+                        <img src="heroimage.png" alt="Travel with SureVisa" class="w-full max-w-md rounded-2xl shadow-lg">
+
+                        </div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -top-4 -right-4 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce">
+                            ✈️ 100% Success Rate
+                        </div>
+                        
+                        <!-- Floating Stats -->
+                        <div class="absolute -bottom-4 -left-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">5000+</div>
+                                <div class="text-sm text-gray-600">Happy Clients</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive solutions for all your travel, visa, and career needs
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+<!-- Service Card 1 -->
+<div class="bg-white rounded-xl p-8 shadow-md card-hover text-center">
+  <!-- Icon -->
+  <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-red-100">
+    <i class="fas fa-plane-departure text-2xl text-red-600"></i>
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-xl font-semibold text-gray-900 mb-4">Our Visa Packages</h3>
+
+  <!-- Details -->
+  <div class="text-gray-600 space-y-4 text-left">
+    <div>
+      <span class="font-semibold flex items-center gap-2">
+        <i class="fas fa-umbrella-beach text-yellow-500"></i> Tourist Visa
+      </span>
+      <p>For vacations, tourism, or visiting family and friends.</p>
+    </div>
+
+    <div>
+      <span class="font-semibold flex items-center gap-2">
+        <i class="fas fa-user-graduate text-blue-500"></i> Student Visa
+      </span>
+      <p>Apply to top colleges and universities in countries like the USA, UK, Canada, and more.</p>
+      <p>Most of our student visa clients come from Pakistan, India, Bangladesh, and the Philippines.</p>
+    </div>
+
+    <div>
+      <span class="font-semibold flex items-center gap-2">
+        <i class="fas fa-briefcase text-green-600"></i> Work Visa / Job Applications
+      </span>
+      <p>We assist with job-based visa applications, document support, and expert guidance to help you start working abroad legally.</p>
+    </div>
+
+    <div>
+      <span class="font-semibold flex items-center gap-2">
+        <i class="fas fa-users text-purple-600"></i> Dependent Visa
+      </span>
+      <p>For family members (like spouse or children) who want to join a student or worker abroad.</p>
+    </div>
+        <!-- Apply Button -->
+    <div class="pt-6 text-center">
+      <p class="font-semibold mb-3"> Ready to Work Abroad?</p>
+      <a href="#" id="applyJobBtn" 
+         class="inline-block bg-green-500 text-white px-6 py-3 rounded-lg shadow hover:bg-green-600 transition">
+         Apply Now
+      </a>
+    </div>
+  </div>
+</div>
+
+                
+                
+                <!-- Service Card 2 -->
+<div class="bg-white rounded-xl p-8 shadow-md card-hover text-center">
+  <!-- Icon -->
+  <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-green-100">
+    <i class="fas fa-briefcase text-2xl text-green-600"></i>
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-xl font-semibold text-gray-900 mb-4">Job Placements</h3>
+
+  <!-- Content -->
+  <div class="text-gray-600 text-left space-y-4">
+    <p>
+      We help you apply for jobs abroad and guide you through the full process — 
+      from finding a job to getting your work visa.
+    </p>
+
+    <p class="font-semibold flex items-center gap-2">
+      <i class="fas fa-hands-helping text-green-500"></i> Our Work Application Support includes:
+    </p>
+    <ul class="list-disc pl-6 space-y-2">
+      <li> Job search assistance in countries like Canada, UK, Australia, and Europe</li>
+      <li> CV/resume improvement</li>
+      <li> Job application submission</li>
+      <li> Interview preparation</li>
+      <li> Document support for visa and offer letters</li>
+    </ul>
+
+    <p class="font-semibold flex items-center gap-2 pt-4">
+      <i class="fas fa-tasks text-blue-500"></i> Our most requested job categories:
+    </p>
+    <ul class="list-disc pl-6 space-y-2">
+      <li> Packaging</li>
+      <li> Factory & Warehouse Jobs</li>
+      <li> Caregiver / Cleaner</li>
+    </ul>
+
+    <!-- Apply Button -->
+    <div class="pt-6 text-center">
+      <p class="font-semibold mb-3"> Ready to Work Abroad?</p>
+      <a href="#" id="applyJobBtn" 
+         class="inline-block bg-green-500 text-white px-6 py-3 rounded-lg shadow hover:bg-green-600 transition">
+         Apply Now
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+               <!-- Service Card 3 -->
+<div class="bg-white rounded-xl p-8 shadow-md card-hover text-center">
+  <!-- Icon -->
+  <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-blue-100">
+    <i class="fas fa-plane-departure text-2xl text-blue-600"></i>
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-xl font-semibold text-gray-900 mb-4">Tour Packages</h3>
+
+  <!-- Content -->
+  <div class="text-gray-600 text-left space-y-4">
+    <p>
+      We help you travel to your dream destination with our fast and easy Tourist Visa services.  
+      Whether you want to explore, relax, or visit family — we’ve got you covered.
+    </p>
+
+    <p class="font-semibold flex items-center gap-2">
+      <i class="fas fa-suitcase-rolling text-blue-500"></i> Our Tour Package Services Include:
+    </p>
+    <ul class="list-disc pl-6 space-y-2">
+      <li> Tourist Visa processing</li>
+      <li> Travel planning and itinerary support</li>
+      <li> Hotel bookings assistance</li>
+      <li> Flight booking help</li>
+      <li> 24/7 WhatsApp support during your trip</li>
+    </ul>
+
+    <p class="font-semibold flex items-center gap-2 pt-4">
+      <i class="fas fa-map-marked-alt text-indigo-500"></i> Top Destinations We Serve:
+    </p>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>🇦🇪 Dubai</li>
+      <li>🇸🇬 Singapore</li>
+      <li>🇲🇾 Malaysia</li>
+      <li>🇹🇭 Thailand</li>
+      <li>🇪🇺 Schengen Countries</li>
+      <li>🇵🇭 Philippines</li>
+      <li>🇺🇸 United States</li>
+    </ul>
+       <!-- Apply Button -->
+    <div class="pt-6 text-center">
+      <p class="font-semibold mb-3"> Ready to Work Abroad?</p>
+      <a href="#" id="applyJobBtn" 
+         class="inline-block bg-green-500 text-white px-6 py-3 rounded-lg shadow hover:bg-green-600 transition">
+         Apply Now
+      </a>
+    </div>
+  </div>
+</div>
+
+
+              <!-- Service Card 4 -->
+<div class="bg-white rounded-xl p-8 shadow-md card-hover text-center">
+  <!-- Icon -->
+  <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-purple-100">
+    <i class="fas fa-headset text-2xl text-purple-600"></i>
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-xl font-semibold text-gray-900 mb-4">Client Support</h3>
+
+  <!-- Content -->
+  <div class="text-gray-600 text-left space-y-4">
+    <p>
+      At <span class="font-semibold">Spaidy Visa Services</span>, we believe in full support — before and after your application.  
+      Whether you're applying for a Tourist Visa, Student Visa, Work Visa, or Dependent Visa, our team is always ready to assist you.
+    </p>
+
+    <p class="font-semibold flex items-center gap-2">
+      <i class="fas fa-hands-helping text-purple-500"></i> Here’s how we support you:
+    </p>
+    <ul class="list-disc pl-6 space-y-2">
+      <li> Free consultation before applying</li>
+      <li> Full documentation help</li>
+      <li> Visa form filling assistance</li>
+      <li> 24/7 support on WhatsApp, call, or email</li>
+      <li> Live tracking of your application</li>
+      <li> Updates until your visa is approved</li>
+    </ul>
+       <!-- Apply Button -->
+    <div class="pt-6 text-center">
+      <p class="font-semibold mb-3"> Ready to Work Abroad?</p>
+      <a href="#" id="applyJobBtn" 
+         class="inline-block bg-green-500 text-white px-6 py-3 rounded-lg shadow hover:bg-green-600 transition">
+         Apply Now
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // WhatsApp Redirect for Job Placements button
+  document.getElementById("applyJobBtn").addEventListener("click", function () {
+    let phone = "61489989397"; // Apna WhatsApp number (country code ke sath)
+    let message = "Hello! I want to apply for Job Placements via SureVisa.com";
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  });
+</script>
+  
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600">Trusted by thousands of satisfied customers worldwide</p>
+            </div>
+            
+            <div class="relative">
+                <div id="testimonial-container" class="overflow-hidden">
+                    <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Testimonial 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 rounded-xl p-8 testimonial-card max-w-4xl mx-auto">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                        <img src="client1.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">Adil mohammed ansari </h4>
+                                        <p class="text-gray-600">IT Specialist, india 🇮🇳</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg italic">
+                                    “I was struggling with paperwork, but SureVisa handled everything smoothly. Highly recommended!”
+                                </p>
+                                <div class="flex text-yellow-400 mt-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 rounded-xl p-8 testimonial-card max-w-4xl mx-auto">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                        <img src="client2.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">Rahul Sharma</h4>
+                                        <p class="text-gray-600">Nursing Student, Bangladesh 🇧🇩</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg italic">
+                                    “SureVisa made the entire Schengen visa process simple. I got my approval faster than expected!”
+                                </p>
+                                <div class="flex text-yellow-400 mt-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 rounded-xl p-8 testimonial-card max-w-4xl mx-auto">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                        <img src="client3.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">Ahmed Shaikh</h4>
+                                        <p class="text-gray-600">MBA Student, Pakistan</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg italic">
+                                    “The team at SureVisa is very professional. They guided me through every step of my student visa.”
+                                </p>
+                                <div class="flex text-yellow-400 mt-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button onclick="showTestimonial(0)" class="testimonial-dot w-3 h-3 rounded-full" style="background-color: rgb(142, 74, 73);"></button>
+                    <button onclick="showTestimonial(1)" class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                    <button onclick="showTestimonial(2)" class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Partners Section -->
+<!-- Partners Section -->
+<section id="clients" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted Partners</h2>
+      <p class="text-xl text-gray-600">Working with leading companies and agencies worldwide</p>
+    </div>
+
+    <div class="overflow-hidden">
+      <div class="flex sliding-logos space-x-12 items-center" style="width: 200%;">
+        
+        <!-- Logos (sirf circle image, no box) -->
+        <img src="client1.jpg" alt="Client 1" class="w-20 h-20 rounded-full object-cover">
+        <img src="client2.jpg" alt="Client 2" class="w-20 h-20 rounded-full object-cover">
+        <img src="client3.jpg" alt="Client 3" class="w-20 h-20 rounded-full object-cover">
+        <img src="client4.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client5.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client6.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client7.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client8.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+
+        <!-- Duplicate for seamless loop -->
+        <img src="client1.jpg" alt="Client 1" class="w-20 h-20 rounded-full object-cover">
+        <img src="client2.jpg" alt="Client 2" class="w-20 h-20 rounded-full object-cover">
+        <img src="client3.jpg" alt="Client 3" class="w-20 h-20 rounded-full object-cover">
+        <img src="client4.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client5.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client6.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client7.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+        <img src="client8.jpg" alt="Client 4" class="w-20 h-20 rounded-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-bold mb-4" style="color: rgb(142, 74, 73);">
+                        <i class="fas fa-globe-americas mr-2"></i>
+                        SureVisa.com
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Your trusted partner for visa processing, international job placements, and travel services. Making your global dreams a reality.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background-color: rgb(142, 74, 73);" onmouseover="this.style.backgroundColor='rgba(142, 74, 73, 0.8)'" onmouseout="this.style.backgroundColor='rgb(142, 74, 73)'">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background-color: rgb(142, 74, 73);" onmouseover="this.style.backgroundColor='rgba(142, 74, 73, 0.8)'" onmouseout="this.style.backgroundColor='rgb(142, 74, 73)'">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/61489989397" class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="https://wa.me/61489989397" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-phone mr-2"></i> +61 489-989-397</li>
+                        <li><i class="fas fa-envelope mr-2"></i> surevisa@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Our Offices <br>🇦🇺 Head Office – Australia
+Address: Level 21, North Tower, 459 Collins St, Melbourne VIC 3000, Australia
+</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SureVisa.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Testimonial carousel functionality
+        let currentTestimonial = 0;
+        const testimonialSlider = document.getElementById('testimonial-slider');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+
+        function showTestimonial(index) {
+            currentTestimonial = index;
+            testimonialSlider.style.transform = `translateX(-${index * 100}%)`;
+            
+            testimonialDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.style.backgroundColor = 'rgb(142, 74, 73)';
+                } else {
+                    dot.style.backgroundColor = '';
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % 3;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97be7d73072ca6dc',t:'MTc1NzMzNDk3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
